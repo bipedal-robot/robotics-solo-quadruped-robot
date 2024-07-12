@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" name="solo">
+    <ros2_control name="solo8_control" type="system">
+
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+        <!-- Front Left Leg -->
+        <joint name="FL_HFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+        <joint name="FL_KFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+
+        <!-- Front Right Leg -->
+        <joint name="FR_HFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+        <joint name="FR_KFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+        <!-- Hind Left Leg -->
+        <joint name="HL_HFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+        <joint name="HL_KFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+        <!-- Hind Right Leg -->
+        <joint name="HR_HFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+        <joint name="HR_KFE">
+            <command_interface name="position">
+                <param name="min">-10</param>
+                <param name="max">10</param>
+            </command_interface>
+            <state_interface name="position" />
+        </joint>
+
+    </ros2_control>
+
+    <!-- Gazebo ros2_control plugin -->
+
+    <gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+            <parameters>$(find solo_controller)/config/controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+</robot>
